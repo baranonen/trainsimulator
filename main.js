@@ -18,15 +18,15 @@ var game = new Phaser.Game(config);
 var speed = 0
 
 function brake() {
-    if (!(speed < 0.5)) {
-        speed += -0.5
+    if (!(speed < 0.6)) {
+        speed += -0.6
     } else {
         speed = 0
     }
 }
 
 function power() {
-    speed += 0.2
+    speed += 0.1
 }
 
 function debugLog(m) {
@@ -80,7 +80,7 @@ function create() {
     tunnel5 = this.add.image(findx(7), 235, 'tunnel').setOrigin(0, 0);
     tunnel6 = this.add.image(findx(8), 235, 'tunnel').setOrigin(0, 0);
     taksim.setScale(0.5)
-    let train = this.add.image(100, 360, 'train');
+    let train = this.add.image(100, 368, 'train');
     train.setScale(0.2)
 }
 
