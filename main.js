@@ -17,6 +17,10 @@ var game = new Phaser.Game(config);
 
 var speed = 0
 
+function scale(num, in_min, in_max, out_min, out_max) {
+    return (num - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+}
+
 function brake() {
     if (!(speed < 0.4)) {
         speed += -0.4
@@ -26,7 +30,11 @@ function brake() {
 }
 
 function power() {
-    speed += 0.1
+    if (kmspeed<50) {
+        speed += 0.1
+    } else {
+        speed += scale(kmspeed, 100, 50, 0, 0.1)
+    }
 }
 
 function debugLog(m) {
