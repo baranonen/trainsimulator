@@ -94,6 +94,7 @@ function preload() {
     this.load.image('osmanbey', 'assets/osmanbey.jpg');
     this.load.image('sisli', 'assets/sisli.jpg');
     this.load.image('gayrettepe', 'assets/gayrettepe.png');
+    this.load.image('levent', 'assets/levent.png');
 }
 
 var taksim
@@ -125,6 +126,12 @@ function create() {
     tunnel18 = this.add.image(findx(21), 235, 'tunnel').setOrigin(0, 0);
     tunnel19 = this.add.image(findx(22), 235, 'tunnel').setOrigin(0, 0);
     tunnel20 = this.add.image(findx(23), 235, 'tunnel').setOrigin(0, 0);
+    levent = this.add.image(findx(24), 35, 'levent').setOrigin(0, 0);
+    tunnel21 = this.add.image(findx(25), 235, 'tunnel').setOrigin(0, 0);
+    tunnel22 = this.add.image(findx(26), 235, 'tunnel').setOrigin(0, 0);
+    tunnel23 = this.add.image(findx(27), 235, 'tunnel').setOrigin(0, 0);
+    tunnel24 = this.add.image(findx(28), 235, 'tunnel').setOrigin(0, 0);
+    tunnel25 = this.add.image(findx(29), 235, 'tunnel').setOrigin(0, 0);
     taksim.setScale(0.5)
     train = this.add.image(100, 368, 'train');
     train.setScale(0.2)
@@ -161,19 +168,29 @@ function update() {
     tunnel2.x += -1 * speed
     tunnel3.x += -1 * speed
     tunnel4.x += -1 * speed
-    osmanbey.x += -1 * speed
     tunnel5.x += -1 * speed
+    osmanbey.x += -1 * speed
     tunnel6.x += -1 * speed
     tunnel7.x += -1 * speed
     tunnel8.x += -1 * speed
-    sisli.x += -1 * speed
     tunnel9.x += -1 * speed
     tunnel10.x += -1 * speed
+    sisli.x += -1 * speed
     tunnel11.x += -1 * speed
     tunnel12.x += -1 * speed
-    gayrettepe.x += -1 * speed
     tunnel13.x += -1 * speed
     tunnel14.x += -1 * speed
     tunnel15.x += -1 * speed
+    gayrettepe.x += -1 * speed
     tunnel16.x += -1 * speed
+    tunnel17.x += -1 * speed
+    tunnel18.x += -1 * speed
+    tunnel19.x += -1 * speed
+    tunnel20.x += -1 * speed
+    levent.x += -1 * speed
+    tunnel21.x += -1 * speed
+    tunnel22.x += -1 * speed
+    tunnel23.x += -1 * speed
+    tunnel24.x += -1 * speed
+    tunnel25.x += -1 * speed
 }
