@@ -29,6 +29,10 @@ function brake() {
     }
 }
 
+function atpbrake() {
+    speed += -0.1
+}
+
 function power() {
     if (kmspeed<50) {
         speed += 0.1
@@ -54,11 +58,27 @@ document.onkeydown = function(e) {
             break
         case 39: 
             debugLog('Right Key pressed!') 
-            break; 
+            break
         case 40: 
             brake()
             debugLog(speed)
             break
+        case 81:
+            power()
+            debugLog(speed)
+            break
+        case 65: 
+            brake()
+            debugLog(speed)
+            break 
+        case 87:
+            power()
+            debugLog(speed)
+            break  
+        case 83: 
+            brake()
+            debugLog(speed)
+            break 
     }
 }
 
@@ -79,6 +99,8 @@ function preload() {
 var taksim
 
 function create() {
+    speedprot = 0
+    maxkmspeed = 80
     taksim = this.add.image(findx(0), 235, 'taksim').setOrigin(0, 0);
     tunnel = this.add.image(findx(1), 235, 'tunnel').setOrigin(0, 0);
     tunnel2 = this.add.image(findx(2), 235, 'tunnel').setOrigin(0, 0);
@@ -104,22 +126,35 @@ function create() {
     tunnel19 = this.add.image(findx(22), 235, 'tunnel').setOrigin(0, 0);
     tunnel20 = this.add.image(findx(23), 235, 'tunnel').setOrigin(0, 0);
     taksim.setScale(0.5)
-    let train = this.add.image(100, 368, 'train');
+    train = this.add.image(100, 368, 'train');
     train.setScale(0.2)
-    speedometer = this.add.text(20, 510, Math.round(speed)+" km/h", { fontSize: "30px", fontFamily: '"--apple-system", "system-ui", Helvetica, "Arial", sans-serif', fill: "white" }).setOrigin(0, 0);
-    maxspeed = this.add.text(20, 550, "Max speed: 80 km/h", { fontSize: "20px", fontFamily: '"--apple-system", "system-ui", Helvetica, "Arial", sans-serif', fill: "white" }).setOrigin(0, 0);
+    speedometer = this.add.text(20, 510, "0 km/h", { fontSize: "30px", fontFamily: 'Helvetica, "Arial", sans-serif', fill: "white" }).setOrigin(0, 0);
+    maxspeed = this.add.text(20, 550, "Max speed: 80 km/h", { fontSize: "20px", fontFamily: 'Helvetica, "Arial", sans-serif', fill: "white" }).setOrigin(0, 0);
+    modeint = this.add.text(200, 510, "ATP", { fontSize: "30px", fontFamily: 'Helvetica, "Arial", sans-serif', fill: "black" }).setOrigin(0, 0);
 }
 
 function update() {
-    kmspeed = speed * 3.2
+    kmspeed = Math.round(speed * 3.2)
     speedometer.destroy()
     maxspeed.destroy()
-    if (kmspeed<80) {
-        maxspeed = this.add.text(20, 550, "Max: 80 km/h", { fontSize: "20px", fontFamily: '"--apple-system", "system-ui", Helvetica, "Arial", sans-serif', fill: "white" }).setOrigin(0, 0);
-    } else {
-        maxspeed = this.add.text(20, 550, "Max: 80 km/h", { fontSize: "20px", fontFamily: '"--apple-system", "system-ui", Helvetica, "Arial", sans-serif', fill: "red" }).setOrigin(0, 0);
+    modeint.destroy()
+    if (speedprot === 1) {
+        speedometer = this.add.text(20, 510, kmspeed+" km/h", { fontSize: "30px", fontFamily: 'Helvetica, "Arial", sans-serif', fill: "red" }).setOrigin(0, 0);
+        modeint = this.add.text(200, 510, "ATP EB", { fontSize: "30px", fontFamily: 'Helvetica, "Arial", sans-serif', fill: "red" }).setOrigin(0, 0);
+        if (kmspeed > maxkmspeed) {
+            atpbrake()
+        } else {
+            speedprot = 0
+        }
+    } else if (kmspeed < maxkmspeed) {
+        speedometer = this.add.text(20, 510, kmspeed+" km/h", { fontSize: "30px", fontFamily: 'Helvetica, "Arial", sans-serif', fill: "white" }).setOrigin(0, 0);
+    } else if (kmspeed < maxkmspeed + 10) {
+        speedometer = this.add.text(20, 510, kmspeed+" km/h", { fontSize: "30px", fontFamily: 'Helvetica, "Arial", sans-serif', fill: "yellow" }).setOrigin(0, 0);
+    } else if (kmspeed >= maxkmspeed + 10) {
+        console.log("overspeed")
+        speedprot = 1
     }
-    speedometer = this.add.text(20, 510, Math.round(kmspeed)+" km/h", { fontSize: "30px", fontFamily: '"--apple-system", "system-ui", Helvetica, "Arial", sans-serif', fill: "white" }).setOrigin(0, 0);
+    maxspeed = this.add.text(20, 550, "Max: 80 km/h", { fontSize: "20px", fontFamily: 'Helvetica, "Arial", sans-serif', fill: "white" }).setOrigin(0, 0);
     currentDistance += speed
     taksim.x += -1 * speed
     tunnel.x += -1 * speed
