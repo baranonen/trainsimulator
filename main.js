@@ -1,4 +1,4 @@
-const debugMode = 1
+const debugMode = 0
 
 var currentDistance = 0
 
@@ -29,6 +29,23 @@ function brake() {
     }
 }
 
+var doorstate = "closed"
+
+function doors() {
+    debugLog("start")
+        if (doorstate === "closed") {
+            leftdoor.x = 99
+            rightdoor.x = 249
+            doorstate = "open"
+            debugLog("opened")
+        } else {
+            leftdoor.x = 149
+            rightdoor.x = 199
+            doorstate = "closed"
+            debugLog("closed")
+        }
+}
+
 function atpbrake() {
     speed += -0.1
 }
@@ -53,8 +70,10 @@ document.onkeydown = function(e) {
             debugLog('Left Key pressed!') 
             break
         case 38: 
-            power()
-            debugLog(speed)
+            if (doorstate === "closed") {
+                power()
+                debugLog(speed)
+            }
             break
         case 39: 
             debugLog('Right Key pressed!') 
@@ -64,21 +83,30 @@ document.onkeydown = function(e) {
             debugLog(speed)
             break
         case 81:
-            power()
-            debugLog(speed)
+            if (doorstate === "closed") {
+                power()
+                debugLog(speed)
+            }
             break
         case 65: 
             brake()
             debugLog(speed)
             break 
         case 87:
-            power()
-            debugLog(speed)
+            if (doorstate === "closed") {
+                power()
+                debugLog(speed)
+            }
             break  
         case 83: 
             brake()
             debugLog(speed)
-            break 
+            break
+        case 13:
+            if (speed === 0) {
+                doors()
+            }
+            break            
     }
 }
 
@@ -90,14 +118,13 @@ function findx(place) {
 function preload() {
     this.load.image('tunnel', 'assets/tunnel.jpg');
     this.load.image('train', 'assets/train.png');
+    this.load.image('door', 'assets/door.png');
     this.load.image('taksim', 'assets/taksim.png');
     this.load.image('osmanbey', 'assets/osmanbey.jpg');
     this.load.image('sisli', 'assets/sisli.jpg');
     this.load.image('gayrettepe', 'assets/gayrettepe.png');
     this.load.image('levent', 'assets/levent.png');
 }
-
-var taksim
 
 function create() {
     speedprot = 0
@@ -133,17 +160,25 @@ function create() {
     tunnel24 = this.add.image(findx(28), 235, 'tunnel').setOrigin(0, 0);
     tunnel25 = this.add.image(findx(29), 235, 'tunnel').setOrigin(0, 0);
     taksim.setScale(0.5)
+    leftdoor = this.add.image(149, 299, 'door').setOrigin(0, 0);
+    rightdoor = this.add.image(199, 299, 'door').setOrigin(0, 0);
     train = this.add.image(100, 368, 'train');
     train.setScale(0.2)
+    leftdoor.setScale(0.2)
+    rightdoor.setScale(0.2)
     speedometer = this.add.text(20, 510, "0 km/h", { fontSize: "30px", fontFamily: 'Helvetica, "Arial", sans-serif', fill: "white" }).setOrigin(0, 0);
     maxspeed = this.add.text(20, 550, "Max speed: 80 km/h", { fontSize: "20px", fontFamily: 'Helvetica, "Arial", sans-serif', fill: "white" }).setOrigin(0, 0);
     modeint = this.add.text(200, 510, "ATP", { fontSize: "30px", fontFamily: 'Helvetica, "Arial", sans-serif', fill: "black" }).setOrigin(0, 0);
+    //currentDistanceInd = this.add.text(1000, 510, "0 km", { fontSize: "30px", fontFamily: 'Helvetica, "Arial", sans-serif', fill: "white" }).setOrigin(0, 0);
 }
 
 function update() {
     kmspeed = Math.round(speed * 3.2)
+    currentDistance += speed
+    //kmCurrentDistance = Math.round(currentDistance) / 3.2
     speedometer.destroy()
     maxspeed.destroy()
+    //currentDistanceInd.destroy()
     modeint.destroy()
     if (speedprot === 1) {
         speedometer = this.add.text(20, 510, kmspeed+" km/h", { fontSize: "30px", fontFamily: 'Helvetica, "Arial", sans-serif', fill: "red" }).setOrigin(0, 0);
@@ -155,14 +190,14 @@ function update() {
         }
     } else if (kmspeed < maxkmspeed) {
         speedometer = this.add.text(20, 510, kmspeed+" km/h", { fontSize: "30px", fontFamily: 'Helvetica, "Arial", sans-serif', fill: "white" }).setOrigin(0, 0);
-    } else if (kmspeed < maxkmspeed + 10) {
+    } else if (kmspeed < maxkmspeed + 11) {
         speedometer = this.add.text(20, 510, kmspeed+" km/h", { fontSize: "30px", fontFamily: 'Helvetica, "Arial", sans-serif', fill: "yellow" }).setOrigin(0, 0);
     } else if (kmspeed >= maxkmspeed + 10) {
         console.log("overspeed")
         speedprot = 1
     }
     maxspeed = this.add.text(20, 550, "Max: 80 km/h", { fontSize: "20px", fontFamily: 'Helvetica, "Arial", sans-serif', fill: "white" }).setOrigin(0, 0);
-    currentDistance += speed
+    //currentDistanceInd = this.add.text(1000, 510, kmCurrentDistance + " km", { fontSize: "30px", fontFamily: 'Helvetica, "Arial", sans-serif', fill: "white" }).setOrigin(0, 0);
     taksim.x += -1 * speed
     tunnel.x += -1 * speed
     tunnel2.x += -1 * speed
