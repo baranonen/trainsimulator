@@ -124,6 +124,7 @@ function preload() {
     this.load.image('sisli', 'assets/sisli.jpg');
     this.load.image('gayrettepe', 'assets/gayrettepe.png');
     this.load.image('levent', 'assets/levent.png');
+    this.load.image('levent4', 'assets/4levent.jpg');
 }
 
 function create() {
@@ -159,6 +160,8 @@ function create() {
     tunnel23 = this.add.image(findx(27), 235, 'tunnel').setOrigin(0, 0);
     tunnel24 = this.add.image(findx(28), 235, 'tunnel').setOrigin(0, 0);
     tunnel25 = this.add.image(findx(29), 235, 'tunnel').setOrigin(0, 0);
+    levent4 = this.add.image(findx(30), 235, 'levent4').setOrigin(0, 0);
+    tunnel26 = this.add.image(findx(31), 235, 'tunnel').setOrigin(0, 0);
     taksim.setScale(0.5)
     leftdoor = this.add.image(149, 299, 'door').setOrigin(0, 0);
     rightdoor = this.add.image(199, 299, 'door').setOrigin(0, 0);
@@ -228,4 +231,6 @@ function update() {
     tunnel23.x += -1 * speed
     tunnel24.x += -1 * speed
     tunnel25.x += -1 * speed
+    levent4.x += -1 * speed
+    tunnel26.x += -1 * speed
 }
