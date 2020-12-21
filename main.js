@@ -5,7 +5,7 @@ var currentDistance = 0
 var config = {
     type: Phaser.AUTO,
     width: 1100,
-    height: 600,
+    height: 350,
     scene: {
         preload: preload,
         create: create,
@@ -130,49 +130,49 @@ function preload() {
 function create() {
     speedprot = 0
     maxkmspeed = 80
-    taksim = this.add.image(findx(0), 235, 'taksim').setOrigin(0, 0);
-    tunnel = this.add.image(findx(1), 235, 'tunnel').setOrigin(0, 0);
-    tunnel2 = this.add.image(findx(2), 235, 'tunnel').setOrigin(0, 0);
-    tunnel3 = this.add.image(findx(3), 235, 'tunnel').setOrigin(0, 0);
-    tunnel4 = this.add.image(findx(4), 235, 'tunnel').setOrigin(0, 0);
-    tunnel5 = this.add.image(findx(5), 235, 'tunnel').setOrigin(0, 0);
-    osmanbey = this.add.image(findx(6), 235, 'osmanbey').setOrigin(0, 0);
-    tunnel6 = this.add.image(findx(7), 235, 'tunnel').setOrigin(0, 0);
-    tunnel7 = this.add.image(findx(8), 235, 'tunnel').setOrigin(0, 0);
-    tunnel8 = this.add.image(findx(9), 235, 'tunnel').setOrigin(0, 0);
-    tunnel9 = this.add.image(findx(10), 235, 'tunnel').setOrigin(0, 0);
-    tunnel10 = this.add.image(findx(11), 235, 'tunnel').setOrigin(0, 0);
-    sisli = this.add.image(findx(12), 235, 'sisli').setOrigin(0, 0);
-    tunnel11 = this.add.image(findx(13), 235, 'tunnel').setOrigin(0, 0);
-    tunnel12 = this.add.image(findx(14), 235, 'tunnel').setOrigin(0, 0);
-    tunnel13 = this.add.image(findx(15), 235, 'tunnel').setOrigin(0, 0);
-    tunnel14 = this.add.image(findx(16), 235, 'tunnel').setOrigin(0, 0);
-    tunnel15 = this.add.image(findx(17), 235, 'tunnel').setOrigin(0, 0);
+    taksim = this.add.image(findx(0), 0, 'taksim').setOrigin(0, 0);
+    tunnel = this.add.image(findx(1), 0, 'tunnel').setOrigin(0, 0);
+    tunnel2 = this.add.image(findx(2), 0, 'tunnel').setOrigin(0, 0);
+    tunnel3 = this.add.image(findx(3), 0, 'tunnel').setOrigin(0, 0);
+    tunnel4 = this.add.image(findx(4), 0, 'tunnel').setOrigin(0, 0);
+    tunnel5 = this.add.image(findx(5), 0, 'tunnel').setOrigin(0, 0);
+    osmanbey = this.add.image(findx(6), 0, 'osmanbey').setOrigin(0, 0);
+    tunnel6 = this.add.image(findx(7), 0, 'tunnel').setOrigin(0, 0);
+    tunnel7 = this.add.image(findx(8), 0, 'tunnel').setOrigin(0, 0);
+    tunnel8 = this.add.image(findx(9), 0, 'tunnel').setOrigin(0, 0);
+    tunnel9 = this.add.image(findx(10), 0, 'tunnel').setOrigin(0, 0);
+    tunnel10 = this.add.image(findx(11), 0, 'tunnel').setOrigin(0, 0);
+    sisli = this.add.image(findx(12), 0, 'sisli').setOrigin(0, 0);
+    tunnel11 = this.add.image(findx(13), 0, 'tunnel').setOrigin(0, 0);
+    tunnel12 = this.add.image(findx(14), 0, 'tunnel').setOrigin(0, 0);
+    tunnel13 = this.add.image(findx(15), 0, 'tunnel').setOrigin(0, 0);
+    tunnel14 = this.add.image(findx(16), 0, 'tunnel').setOrigin(0, 0);
+    tunnel15 = this.add.image(findx(17), 0, 'tunnel').setOrigin(0, 0);
     gayrettepe = this.add.image(findx(18), 35, 'gayrettepe').setOrigin(0, 0);
-    tunnel16 = this.add.image(findx(19), 235, 'tunnel').setOrigin(0, 0);
-    tunnel17 = this.add.image(findx(20), 235, 'tunnel').setOrigin(0, 0);
-    tunnel18 = this.add.image(findx(21), 235, 'tunnel').setOrigin(0, 0);
-    tunnel19 = this.add.image(findx(22), 235, 'tunnel').setOrigin(0, 0);
-    tunnel20 = this.add.image(findx(23), 235, 'tunnel').setOrigin(0, 0);
+    tunnel16 = this.add.image(findx(19), 0, 'tunnel').setOrigin(0, 0);
+    tunnel17 = this.add.image(findx(20), 0, 'tunnel').setOrigin(0, 0);
+    tunnel18 = this.add.image(findx(21), 0, 'tunnel').setOrigin(0, 0);
+    tunnel19 = this.add.image(findx(22), 0, 'tunnel').setOrigin(0, 0);
+    tunnel20 = this.add.image(findx(23), 0, 'tunnel').setOrigin(0, 0);
     levent = this.add.image(findx(24), 35, 'levent').setOrigin(0, 0);
-    tunnel21 = this.add.image(findx(25), 235, 'tunnel').setOrigin(0, 0);
-    tunnel22 = this.add.image(findx(26), 235, 'tunnel').setOrigin(0, 0);
-    tunnel23 = this.add.image(findx(27), 235, 'tunnel').setOrigin(0, 0);
-    tunnel24 = this.add.image(findx(28), 235, 'tunnel').setOrigin(0, 0);
-    tunnel25 = this.add.image(findx(29), 235, 'tunnel').setOrigin(0, 0);
-    levent4 = this.add.image(findx(30), 235, 'levent4').setOrigin(0, 0);
-    tunnel26 = this.add.image(findx(31), 235, 'tunnel').setOrigin(0, 0);
+    tunnel21 = this.add.image(findx(25), 0, 'tunnel').setOrigin(0, 0);
+    tunnel22 = this.add.image(findx(26), 0, 'tunnel').setOrigin(0, 0);
+    tunnel23 = this.add.image(findx(27), 0, 'tunnel').setOrigin(0, 0);
+    tunnel24 = this.add.image(findx(28), 0, 'tunnel').setOrigin(0, 0);
+    tunnel25 = this.add.image(findx(29), 0, 'tunnel').setOrigin(0, 0);
+    levent4 = this.add.image(findx(30), 0, 'levent4').setOrigin(0, 0);
+    tunnel26 = this.add.image(findx(31), 0, 'tunnel').setOrigin(0, 0);
     taksim.setScale(0.5)
-    leftdoor = this.add.image(149, 299, 'door').setOrigin(0, 0);
-    rightdoor = this.add.image(199, 299, 'door').setOrigin(0, 0);
-    train = this.add.image(100, 368, 'train');
+    leftdoor = this.add.image(149, 64, 'door').setOrigin(0, 0);
+    rightdoor = this.add.image(199, 64, 'door').setOrigin(0, 0);
+    train = this.add.image(100, 133, 'train');
     train.setScale(0.2)
     leftdoor.setScale(0.2)
     rightdoor.setScale(0.2)
-    speedometer = this.add.text(20, 510, "0 km/h", { fontSize: "30px", fontFamily: 'Helvetica, "Arial", sans-serif', fill: "white" }).setOrigin(0, 0);
+    speedometer = this.add.text(20, 275, "0 km/h", { fontSize: "30px", fontFamily: 'Helvetica, "Arial", sans-serif', fill: "white" }).setOrigin(0, 0);
     maxspeed = this.add.text(20, 550, "Max speed: 80 km/h", { fontSize: "20px", fontFamily: 'Helvetica, "Arial", sans-serif', fill: "white" }).setOrigin(0, 0);
-    modeint = this.add.text(200, 510, "ATP", { fontSize: "30px", fontFamily: 'Helvetica, "Arial", sans-serif', fill: "black" }).setOrigin(0, 0);
-    //currentDistanceInd = this.add.text(1000, 510, "0 km", { fontSize: "30px", fontFamily: 'Helvetica, "Arial", sans-serif', fill: "white" }).setOrigin(0, 0);
+    modeint = this.add.text(200, 275, "ATP", { fontSize: "30px", fontFamily: 'Helvetica, "Arial", sans-serif', fill: "black" }).setOrigin(0, 0);
+    //currentDistanceInd = this.add.text(1000, 275, "0 km", { fontSize: "30px", fontFamily: 'Helvetica, "Arial", sans-serif', fill: "white" }).setOrigin(0, 0);
 }
 
 function update() {
@@ -184,23 +184,23 @@ function update() {
     //currentDistanceInd.destroy()
     modeint.destroy()
     if (speedprot === 1) {
-        speedometer = this.add.text(20, 510, kmspeed+" km/h", { fontSize: "30px", fontFamily: 'Helvetica, "Arial", sans-serif', fill: "red" }).setOrigin(0, 0);
-        modeint = this.add.text(200, 510, "ATP EB", { fontSize: "30px", fontFamily: 'Helvetica, "Arial", sans-serif', fill: "red" }).setOrigin(0, 0);
+        speedometer = this.add.text(20, 275, kmspeed+" km/h", { fontSize: "30px", fontFamily: 'Helvetica, "Arial", sans-serif', fill: "red" }).setOrigin(0, 0);
+        modeint = this.add.text(200, 275, "ATP EB", { fontSize: "30px", fontFamily: 'Helvetica, "Arial", sans-serif', fill: "red" }).setOrigin(0, 0);
         if (kmspeed > maxkmspeed) {
             atpbrake()
         } else {
             speedprot = 0
         }
     } else if (kmspeed < maxkmspeed) {
-        speedometer = this.add.text(20, 510, kmspeed+" km/h", { fontSize: "30px", fontFamily: 'Helvetica, "Arial", sans-serif', fill: "white" }).setOrigin(0, 0);
+        speedometer = this.add.text(20, 275, kmspeed+" km/h", { fontSize: "30px", fontFamily: 'Helvetica, "Arial", sans-serif', fill: "white" }).setOrigin(0, 0);
     } else if (kmspeed < maxkmspeed + 11) {
-        speedometer = this.add.text(20, 510, kmspeed+" km/h", { fontSize: "30px", fontFamily: 'Helvetica, "Arial", sans-serif', fill: "yellow" }).setOrigin(0, 0);
+        speedometer = this.add.text(20, 275, kmspeed+" km/h", { fontSize: "30px", fontFamily: 'Helvetica, "Arial", sans-serif', fill: "yellow" }).setOrigin(0, 0);
     } else if (kmspeed >= maxkmspeed + 10) {
         console.log("overspeed")
         speedprot = 1
     }
-    maxspeed = this.add.text(20, 550, "Max: 80 km/h", { fontSize: "20px", fontFamily: 'Helvetica, "Arial", sans-serif', fill: "white" }).setOrigin(0, 0);
-    //currentDistanceInd = this.add.text(1000, 510, kmCurrentDistance + " km", { fontSize: "30px", fontFamily: 'Helvetica, "Arial", sans-serif', fill: "white" }).setOrigin(0, 0);
+    maxspeed = this.add.text(20, 315, "Max: 80 km/h", { fontSize: "20px", fontFamily: 'Helvetica, "Arial", sans-serif', fill: "white" }).setOrigin(0, 0);
+    //currentDistanceInd = this.add.text(1000, 275, kmCurrentDistance + " km", { fontSize: "30px", fontFamily: 'Helvetica, "Arial", sans-serif', fill: "white" }).setOrigin(0, 0);
     taksim.x += -1 * speed
     tunnel.x += -1 * speed
     tunnel2.x += -1 * speed
