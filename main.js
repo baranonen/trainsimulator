@@ -2,6 +2,8 @@ const debugMode = 0
 
 var currentDistance = 0
 
+
+
 var config = {
     type: Phaser.AUTO,
     width: 1100,
@@ -52,16 +54,37 @@ function atpbrake() {
 
 function power() {
     if (kmspeed<50) {
-        speed += 0.1
+        speed += 0.02
     } else {
-        speed += scale(kmspeed, 100, 50, 0, 0.1)
+        speed += scale(kmspeed, 100, 50, 0, 0.02)
     }
 }
+
+currentpower = 0
+
+function accelerate() {
+    currentpower = 1
+    console.log("accel")
+}
+
+function decelerate() {
+    console.log("decel")
+    currentpower = -1
+}
+
+function neutral() {
+    currentpower = 0
+}
+
 
 function debugLog(m) {
     if (debugMode === 1) {
         console.log(m)
     }
+}
+
+document.onkeyup = function() {
+    neutral()
 }
 
 document.onkeydown = function(e) { 
@@ -70,10 +93,7 @@ document.onkeydown = function(e) {
             debugLog('Left Key pressed!') 
             break
         case 38: 
-            if (doorstate === "closed") {
-                power()
-                debugLog(speed)
-            }
+            accelerate()
             break
         case 39: 
             debugLog('Right Key pressed!') 
@@ -83,20 +103,14 @@ document.onkeydown = function(e) {
             debugLog(speed)
             break
         case 81:
-            if (doorstate === "closed") {
-                power()
-                debugLog(speed)
-            }
+            accelerate()
             break
         case 65: 
             brake()
             debugLog(speed)
             break 
         case 87:
-            if (doorstate === "closed") {
-                power()
-                debugLog(speed)
-            }
+            accelerate()
             break  
         case 83: 
             brake()
@@ -183,6 +197,16 @@ function update() {
     maxspeed.destroy()
     //currentDistanceInd.destroy()
     modeint.destroy()
+    if (currentpower == 1) {
+        power()
+    }
+    if (currentpower == -1) {
+        if (!(speed < 0.05)) {
+            speed += -0.05
+        } else {
+            speed = 0
+        }
+    }
     if (speedprot === 1) {
         speedometer = this.add.text(20, 275, kmspeed+" km/h", { fontSize: "30px", fontFamily: 'Helvetica, "Arial", sans-serif', fill: "red" }).setOrigin(0, 0);
         modeint = this.add.text(200, 275, "ATP EB", { fontSize: "30px", fontFamily: 'Helvetica, "Arial", sans-serif', fill: "red" }).setOrigin(0, 0);

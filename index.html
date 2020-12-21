@@ -2,13 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
     <title>Train Simulator - M2 İstanbul</title>
     <script src="//cdn.jsdelivr.net/npm/phaser@3.11.0/dist/phaser.js"></script>
     <script src="main.js"></script>
     <link rel="stylesheet" href="main.css">
 </head>
-<body>
-    
+<body ontouchstart="">
+    <button class="accelerate" ontouchstart="accelerate()" ontouchend="neutral()" onmousedown="accelerate()" onmouseup="neutral()">↑</button>
+    <button class="decelerate" ontouchstart="decelerate()" ontouchend="neutral()" onmousedown="decelerate()" onmouseup="neutral()">↓</button>
 </body>
 </html>
