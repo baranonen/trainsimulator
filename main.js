@@ -35,6 +35,7 @@ var doorstate = "closed"
 
 function doors() {
     debugLog("start")
+    if (speed === 0) {
         if (doorstate === "closed") {
             leftdoor.x = 99
             rightdoor.x = 249
@@ -46,6 +47,7 @@ function doors() {
             doorstate = "closed"
             debugLog("closed")
         }
+    }
 }
 
 function atpbrake() {
@@ -117,9 +119,7 @@ document.onkeydown = function(e) {
             debugLog(speed)
             break
         case 13:
-            if (speed === 0) {
-                doors()
-            }
+            doors()
             break            
     }
 }
@@ -220,7 +220,7 @@ function update() {
     } else if (kmspeed < maxkmspeed + 11) {
         speedometer = this.add.text(20, 275, kmspeed+" km/h", { fontSize: "30px", fontFamily: 'Helvetica, "Arial", sans-serif', fill: "yellow" }).setOrigin(0, 0);
     } else if (kmspeed >= maxkmspeed + 10) {
-        console.log("overspeed")
+        debugLog("overspeed")
         speedprot = 1
     }
     maxspeed = this.add.text(20, 315, "Max: 80 km/h", { fontSize: "20px", fontFamily: 'Helvetica, "Arial", sans-serif', fill: "white" }).setOrigin(0, 0);

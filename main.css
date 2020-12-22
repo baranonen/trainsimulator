@@ -54,3 +54,8 @@ button:active {
 .decelerate {
     left: 10px;
 }
+
+.doorbutton {
+    left: 50%;
+    transform: translate(-50%, 0);
+}
