@@ -2,8 +2,6 @@ const debugMode = 0
 
 var currentDistance = 0
 
-
-
 var config = {
     type: Phaser.AUTO,
     width: 1100,
@@ -37,11 +35,13 @@ function doors() {
     debugLog("start")
     if (speed === 0) {
         if (doorstate === "closed") {
+            document.getElementById("doorbtn").innerHTML = '<i class="fas fa-angle-right"></i><i class="fas fa-angle-left"></i>'
             leftdoor.x = 99
             rightdoor.x = 249
             doorstate = "open"
             debugLog("opened")
         } else {
+            document.getElementById("doorbtn").innerHTML = '<i class="fas fa-angle-left"></i><i class="fas fa-angle-right"></i>'
             leftdoor.x = 149
             rightdoor.x = 199
             doorstate = "closed"
