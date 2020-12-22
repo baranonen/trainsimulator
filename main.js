@@ -53,10 +53,12 @@ function atpbrake() {
 }
 
 function power() {
-    if (kmspeed<50) {
-        speed += 0.02
-    } else {
-        speed += scale(kmspeed, 100, 50, 0, 0.02)
+    if (doorstate == "closed") {
+        if (kmspeed<50) {
+            speed += 0.02
+        } else {
+            speed += scale(kmspeed, 100, 50, 0, 0.02)
+        }
     }
 }
 
@@ -64,11 +66,9 @@ currentpower = 0
 
 function accelerate() {
     currentpower = 1
-    console.log("accel")
 }
 
 function decelerate() {
-    console.log("decel")
     currentpower = -1
 }
 
@@ -162,13 +162,13 @@ function create() {
     tunnel13 = this.add.image(findx(15), 0, 'tunnel').setOrigin(0, 0);
     tunnel14 = this.add.image(findx(16), 0, 'tunnel').setOrigin(0, 0);
     tunnel15 = this.add.image(findx(17), 0, 'tunnel').setOrigin(0, 0);
-    gayrettepe = this.add.image(findx(18), 35, 'gayrettepe').setOrigin(0, 0);
+    gayrettepe = this.add.image(findx(18), -200, 'gayrettepe').setOrigin(0, 0);
     tunnel16 = this.add.image(findx(19), 0, 'tunnel').setOrigin(0, 0);
     tunnel17 = this.add.image(findx(20), 0, 'tunnel').setOrigin(0, 0);
     tunnel18 = this.add.image(findx(21), 0, 'tunnel').setOrigin(0, 0);
     tunnel19 = this.add.image(findx(22), 0, 'tunnel').setOrigin(0, 0);
     tunnel20 = this.add.image(findx(23), 0, 'tunnel').setOrigin(0, 0);
-    levent = this.add.image(findx(24), 35, 'levent').setOrigin(0, 0);
+    levent = this.add.image(findx(24), -200, 'levent').setOrigin(0, 0);
     tunnel21 = this.add.image(findx(25), 0, 'tunnel').setOrigin(0, 0);
     tunnel22 = this.add.image(findx(26), 0, 'tunnel').setOrigin(0, 0);
     tunnel23 = this.add.image(findx(27), 0, 'tunnel').setOrigin(0, 0);
