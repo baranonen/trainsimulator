@@ -36,14 +36,14 @@ function doors() {
     if (speed === 0) {
         if (doorstate === "closed") {
             document.getElementById("doorbtn").innerHTML = '<i class="fas fa-angle-right"></i><i class="fas fa-angle-left"></i>'
-            leftdoor.x = 99
+            leftdoor.x = 98
             rightdoor.x = 249
             doorstate = "open"
             debugLog("opened")
         } else {
             document.getElementById("doorbtn").innerHTML = '<i class="fas fa-angle-left"></i><i class="fas fa-angle-right"></i>'
-            leftdoor.x = 149
-            rightdoor.x = 199
+            leftdoor.x = 148
+            rightdoor.x = 198
             doorstate = "closed"
             debugLog("closed")
         }
@@ -177,8 +177,8 @@ function create() {
     levent4 = this.add.image(findx(30), 0, 'levent4').setOrigin(0, 0);
     tunnel26 = this.add.image(findx(31), 0, 'tunnel').setOrigin(0, 0);
     taksim.setScale(0.5)
-    leftdoor = this.add.image(149, 64, 'door').setOrigin(0, 0);
-    rightdoor = this.add.image(199, 64, 'door').setOrigin(0, 0);
+    leftdoor = this.add.image(148, 57, 'door').setOrigin(0, 0);
+    rightdoor = this.add.image(198, 57, 'door').setOrigin(0, 0);
     train = this.add.image(100, 133, 'train');
     train.setScale(0.2)
     leftdoor.setScale(0.2)
