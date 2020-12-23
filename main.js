@@ -133,7 +133,7 @@ function preload() {
     this.load.image('tunnel', 'assets/tunnel.jpg');
     this.load.image('train', 'assets/train.png');
     this.load.image('door', 'assets/door.png');
-    this.load.image('taksim', 'assets/taksim.png');
+    this.load.image('taksim', 'assets/taksim.jpg');
     this.load.image('osmanbey', 'assets/osmanbey.jpg');
     this.load.image('sisli', 'assets/sisli.jpg');
     this.load.image('gayrettepe', 'assets/gayrettepe.png');
@@ -176,7 +176,6 @@ function create() {
     tunnel25 = this.add.image(findx(29), 0, 'tunnel').setOrigin(0, 0);
     levent4 = this.add.image(findx(30), 0, 'levent4').setOrigin(0, 0);
     tunnel26 = this.add.image(findx(31), 0, 'tunnel').setOrigin(0, 0);
-    taksim.setScale(0.5)
     leftdoor = this.add.image(148, 57, 'door').setOrigin(0, 0);
     rightdoor = this.add.image(198, 57, 'door').setOrigin(0, 0);
     train = this.add.image(100, 133, 'train');
